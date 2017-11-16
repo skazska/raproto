@@ -23,28 +23,16 @@ requirejs(
           * @param {number} shape.width
           * @param {number} shape.height
           * @param {boolean} render
-          * @returns {SfAreaAbstract}
+          * @returns {AreaAbstract}
           */
          setShape (shape, render) {
             if (!shape) return this;
 
-            let isChanged = false;
-
-            if (typeof shape.x === "number" && this.shape.x !== shape.x) {
-               this.shape.x = shape.x;
-               isChanged = true;
-            }
-            if (typeof shape.y === "number" && this.shape.y !== shape.y) {
-               this.shape.y = shape.y;
-               isChanged = true;
-            }
-            if (typeof shape.width === "number" && this.shape.width !== shape.width) {
-               this.shape.width = shape.width;
-               isChanged = true;
-            }
-            if (typeof shape.height !== "number" && this.shape.height !== shape.height) {
-               this.shape.height = shape.height;
-               isChanged = true;
+            if ( !AreaAbstract.eql(this.view, view) ) {
+               this.view = view;
+               if ( render ) {
+                  this.render();
+               }
             }
 
             return super.setShape(this.shape, render && isChanged);
