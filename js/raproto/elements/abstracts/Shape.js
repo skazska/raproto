@@ -3,11 +3,11 @@ requirejs(
    function () {
       'use strict';
 
-      class Composition {
+      class Shape {
 
          /**
-          * creates shape data object
-          * @calss
+          * creates shape definition data object
+          * @class
           * @param {string} type
           * @param {Object} options
           */
@@ -19,21 +19,25 @@ requirejs(
          /**
           * sets shape type
           * @param {string} type
+          * @returns {Shape}
           */
          setType (type) {
             this.type = type;
+            return this;
          }
 
          /**
           * sets shape options
           * @param options
+          * @returns {Shape}
           */
          setOptions (options) {
             this.options = options;
+            return this;
          }
 
       }
 
-      return Composition;
+      return Shape;
    }
 );
