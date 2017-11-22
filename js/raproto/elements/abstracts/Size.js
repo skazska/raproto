@@ -1,4 +1,4 @@
-requirejs(
+define(
    [],
    function () {
       'use strict';
@@ -13,7 +13,7 @@ requirejs(
           */
          constructor (width, height) {
             this.setWidth(width);
-            this.setOptions(height);
+            this.setHeight(height);
          }
 
          /**
@@ -31,7 +31,7 @@ requirejs(
           * @param height
           * @returns {Size}
           */
-         setOptions (height) {
+         setHeight (height) {
             this.height = height;
             return this;
          }

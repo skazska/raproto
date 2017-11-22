@@ -1,5 +1,5 @@
-requirejs(
-   ['AreaRect'],
+define(
+   ['Editor'],
    function (Editor) {
       'use strict';
 

@@ -1,0 +1,23 @@
+define(
+   ['trans/abstracts/Translator'],
+   function (Translator) {
+      'use strict';
+
+      class TranslatorSvg extends Translator {
+
+         /**
+          * creates translator elt to svg object
+          * @class
+          * @param {string} type
+          * @param {Object} options
+          */
+         constructor (options) {
+            super(options);
+         }
+
+
+      }
+
+      return TranslatorSvg;
+   }
+);

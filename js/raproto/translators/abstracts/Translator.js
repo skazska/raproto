@@ -3,27 +3,16 @@ define(
    function () {
       'use strict';
 
-      class Shape {
+      class Translator {
 
          /**
-          * creates shape definition data object
+          * creates abstract translator of elt object
           * @class
           * @param {string} type
           * @param {Object} options
           */
-         constructor (type, options) {
-            this.setType(type);
+         constructor (options) {
             this.setOptions(options);
-         }
-
-         /**
-          * sets shape type
-          * @param {string} type
-          * @returns {Shape}
-          */
-         setType (type) {
-            this.type = type;
-            return this;
          }
 
          /**
@@ -38,6 +27,6 @@ define(
 
       }
 
-      return Shape;
+      return Translator;
    }
 );

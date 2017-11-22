@@ -1,4 +1,4 @@
-requirejs(
+define(
    ['d3', 'AreaRect'],
    function (d3, AreaRect) {
       'use strict';

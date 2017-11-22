@@ -1,28 +1,31 @@
-requirejs.config({
+require.config({
    //By default load any module IDs from js/lib
-   baseUrl: 'js/sf',
+   baseUrl: 'js',
    //except, if the module ID starts with "app",
    //load it from the js/app directory. paths
    //config is relative to the baseUrl, and
    //never includes a ".js" extension since
    //the paths config could be for a directory.
    paths: {
-      d3: "https://d3js.org/d3.v4.min.js",
-      //sf: "js/sf"
+      "d3": "https://d3js.org/d3.v4.min.js",
+      "utils": "js/utils",
+      "rp": "js/raproto",
+      "elts" : "js/raproto/elements",
+      "trans" : "js/raproto"
    }
 });
 
 // Start the main app logic.
-requirejs(
-   ['Sf'],
-   function   (Sf) {
+require(
+   ['rp/Raproto'],
+   function   (Raproto) {
       window.addEventListener("load", function () {
          console.log("loaded");
 
-         const sf = new Sf("svg#workplace");
+         const raproto = new Raproto("svg#workplace");
 
          optimizedResize.add(function() {
-            sf.resize();
+            raproto.resize();
             console.log('Resource conscious resize callback!')
          });
 

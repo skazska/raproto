@@ -1,4 +1,4 @@
-requirejs(
+define(
    ['d3', 'AreaAbstract', 'ItemEditor', 'EditBrowser'],
    function (d3, AreaAbstract, ItemEditor, EditBrowser) {
       'use strict';

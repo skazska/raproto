@@ -3,17 +3,17 @@ define(
    function () {
       'use strict';
 
-      class Shape {
+      class Layout {
 
          /**
-          * creates shape definition data object
+          * creates layout definition data object
           * @class
           * @param {string} type
           * @param {Object} options
           */
          constructor (type, options) {
-            this.setType(type);
-            this.setOptions(options);
+            this.setType(type || 'LRUD');
+            this.setOptions(options || {});
          }
 
          /**
@@ -38,6 +38,6 @@ define(
 
       }
 
-      return Shape;
+      return Layout;
    }
 );

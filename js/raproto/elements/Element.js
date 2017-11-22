@@ -1,5 +1,5 @@
-requirejs(
-   ['elements/abstracts/Composition', 'elements/abstracts/Border', 'elements/abstracts/Background'],
+define(
+   ['elts/abstracts/Composition', 'elts/abstracts/Border', 'elts/abstracts/Background'],
    function (Composition, Border, Background) {
       'use strict';
 
@@ -12,9 +12,48 @@ requirejs(
           * @param {Border} border
           * @param {Background} background
           */
-         constructor (composition, border, background) {
+         constructor (type, composition, border, background) {
+            this.setType(type);
+            this.setComposition(composition);
+            this.setBorder(border);
+            this.setBackground(background);
+         }
+
+         /**
+          * sets type
+          * @param type
+          * @returns {Element}
+          */
+         setType (type) {
+            this.type = type;
+            return this;
+         }
+
+         /**
+          * sets composition
+          * @param composition
+          * @returns {Element}
+          */
+         setComposition (composition) {
             this.composition= composition;
+            return this;
+         }
+
+         /**
+          * sets border
+          * @param border
+          * @returns {Element}
+          */
+         setBorder (border) {
             this.border = border;
+            return this;
+         }
+
+         /**
+          * sets background
+          * @param background
+          */
+         setBackground(background) {
             this.background = background;
          }
 
