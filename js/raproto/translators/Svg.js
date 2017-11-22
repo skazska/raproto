@@ -1,6 +1,6 @@
 define(
-   ['trans/abstracts/Translator'],
-   function (Translator) {
+   ['trans/abstracts/Translator', 'trans/svg/elementTranslator'],
+   function (Translator, elementTranslator) {
       'use strict';
 
       class TranslatorSvg extends Translator {
@@ -15,6 +15,10 @@ define(
             super(options);
          }
 
+
+         translate (elts) {
+            return elts.map(elementTranslator.bind(this));
+         }
 
       }
 
