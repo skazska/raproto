@@ -17,7 +17,7 @@ define(
 
 
          translate (elts) {
-            return elts.map(elementTranslator.bind(this));
+            return elts.map(elt => elementTranslator(elt, this.options));
          }
 
       }

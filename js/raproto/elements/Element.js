@@ -30,6 +30,14 @@ define(
          }
 
          /**
+         * returns type
+         * @returns {*}
+         */
+         getType () {
+             return this.type;
+         }
+
+         /**
           * sets composition
           * @param composition
           * @returns {Element}
