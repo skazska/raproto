@@ -1,18 +1,22 @@
-define(
-   ['trans/svg/elementMap'],
-   function (map) {
-      "use strict";
+define( function (require) {
+   "use strict";
 
-      return (element, options) => {
+   return (element, container, translator) => {
+      const mapper = require('./elementMap');
 
-         let translator = options && options.map && options.map[element.type] || map[element.type] || null;
+      let elementTranslator = translator && translator.options && translator.options.mapper && options.mapper[element.type]
+         || mapper[element.type] || null;
 
-         if (options.interceptors && typeof options.interceptors.elementTranslator === 'function')
-            translator = options.interceptors.elementTranslator(element, translator);
+      if (
+         translator && translator.options && translator.options.interceptors
+         && typeof translator.options.interceptors.elementTranslator === 'function'
+      ) elementTranslator = translator.options.interceptors.elementTranslator(element, elementTranslator, container, translator);
 
-         return translator(element, options);
+      if (typeof elementTranslator === 'string')
+         elementTranslator = require(elementTranslator);
 
-      }
+      return typeof elementTranslator === 'function' ? elementTranslator(element, container, translator) : elementTranslator;
 
    }
-);
+
+});

@@ -4,7 +4,7 @@ define(
       "use strict";
 
       return {
-         "Container" : ""
+         "Container" : "./translateContainer"
       }
 
    }

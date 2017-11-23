@@ -16,8 +16,8 @@ define(
          }
 
 
-         translate (elts) {
-            return elts.map(elt => elementTranslator(elt, this.options));
+         translate (elts, container) {
+            return elts.map(elt => elementTranslator(elt, container, this));
          }
 
       }
